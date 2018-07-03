@@ -57,9 +57,17 @@ public class WordCount
 
             mapReduceWordcountJob.setOutputValueClass(IntWritable.class);
 
+            System.exit(mapReduceWordcountJob.waitForCompletion(true)? 0 : 1);
 
         } catch (IOException e) {
             e.printStackTrace();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+
         }
     }
 }
